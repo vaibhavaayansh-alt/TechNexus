@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - TechNexus</title>
+    <meta name="description" content="Get in touch with Aayansh Vaibhav - TechNexus.">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <style>
+        .page-hero {
+            padding: 160px 0 60px;
+            background: var(--primary-bg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .page-hero h1 {
+            position: relative;
+            z-index: 1;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        .page-hero p {
+            position: relative;
+            z-index: 1;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-section {
+            padding: 80px 0;
+            background: var(--secondary-bg);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .contact-info h2 {
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: var(--card-bg);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        .contact-item:hover {
+            border-color: var(--accent-purple);
+            transform: translateX(4px);
+        }
+        .contact-item .contact-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        .contact-item .contact-text strong {
+            display: block;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+        .contact-item .contact-text span {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .contact-form-wrapper {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+        .contact-form-wrapper h3 {
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            background: var(--secondary-bg);
+            color: var(--text-primary);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+        }
+        .form-group input.error,
+        .form-group textarea.error {
+            border-color: #EF4444;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-errors {
+            background: rgba(239, 68, 68, 0.1);
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 20px;
+            display: none;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        .form-errors p {
+            color: #EF4444;
+            margin: 4px 0;
+            font-size: 0.9rem;
+        }
+        .form-success {
+            display: none;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient-1);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.5);
+        }
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-form-wrapper {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-wrapper">
+                <div class="nav-logo">
+                    <a href="./index.html">
+                        <span class="logo-text">TECH<span>NEXUS</span></span>
+                    </a>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./projects.html">Projects</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                    <li><a href="./contact.html" class="active">Contact</a></li>
+                    <li><a href="./contact.html" class="btn-nav-cta">Let's Connect</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Have a question, idea, or just want to say hi? Let's connect!</p>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Let's Talk</h2>
+                    <p>I'm always open to hearing from fellow developers, potential collaborators, or anyone with a question about tech and coding.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <div class="contact-text">
+                                <strong>Email</strong>
+                                <span>aayansh@technxus.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div class="contact-text">
+                                <strong>Location</strong>
+                                <span>Muzaffarpur, Bihar, India</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">🐙</span>
+                            <div class="contact-text">
+                                <strong>GitHub</strong>
+                                <span>vaibhavvaayansh-alt</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📸</span>
+                            <div class="contact-text">
+                                <strong>Instagram</strong>
+                                <span>@aayanshvaibhav</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h3>Send Me a Message</h3>
+
+                    <div class="form-errors" id="formErrors"></div>
+                    <div class="form-success" id="formSuccess"></div>
+
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Your Name *</label>
+                            <input type="text" id="contactName" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">Your Email *</label>
+                            <input type="email" id="contactEmail" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Your Message *</label>
+                            <textarea id="contactMessage" placeholder="What's on your mind?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-wrapper">
+                <h2>Explore More</h2>
+                <p>Check out my projects and blog to see what I'm working on.</p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="./projects.html" class="btn-primary">View Projects</a>
+                    <a href="./blog.html" class="btn-secondary">Read Blog</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">TECH<span>NEXUS</span></span>
+                    </div>
+                    <p>A tech blog by Aayansh Vaibhav.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="GitHub">🐙</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./projects.html">Projects</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Projects</h4>
+                    <ul>
+                        <li><a href="https://vaibhavvaayansh-alt.github.io/nexus-healthcare/" target="_blank">Nexus Healthcare</a></li>
+                        <li><a href="./index.html">TechNexus</a></li>
+                        <li><a href="#">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TechNexus by Aayansh Vaibhav. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
