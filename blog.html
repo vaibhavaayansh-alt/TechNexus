@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - TechNexus</title>
+    <meta name="description" content="Tech blog by Aayansh Vaibhav - Coding tutorials, projects, and tech insights.">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <style>
+        .page-hero {
+            padding: 160px 0 60px;
+            background: var(--primary-bg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .page-hero h1 {
+            position: relative;
+            z-index: 1;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+        .page-hero p {
+            position: relative;
+            z-index: 1;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .blog-section {
+            padding: 80px 0;
+            background: var(--secondary-bg);
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-purple);
+            box-shadow: var(--shadow-glow);
+        }
+        .blog-image {
+            height: 180px;
+            background: var(--gradient-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), transparent 70%);
+        }
+        .blog-content {
+            padding: 28px;
+        }
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .blog-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--accent-purple);
+        }
+        .blog-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        .blog-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .blog-link {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .blog-link:hover {
+            color: var(--accent-purple);
+        }
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-wrapper">
+                <div class="nav-logo">
+                    <a href="./index.html">
+                        <span class="logo-text">TECH<span>NEXUS</span></span>
+                    </a>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About</a></li>
+                    <li><a href="./projects.html">Projects</a></li>
+                    <li><a href="./blog.html" class="active">Blog</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./contact.html" class="btn-nav-cta">Let's Connect</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Blog</h1>
+            <p>Thoughts, tutorials, and insights from my coding journey</p>
+        </div>
+    </section>
+
+    <!-- ==================== BLOG SECTION ==================== -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Blog 1 -->
+                <div class="blog-card">
+                    <div class="blog-image">✍️</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Journey</span>
+                            <span>📅 September 2026</span>
+                        </div>
+                        <h3>Why I Started Coding at 13</h3>
+                        <p>My journey from a curious kid to building my own websites. The ups, downs, and everything in between.</p>
+                        <a href="#" class="blog-link">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog 2 -->
+                <div class="blog-card">
+                    <div class="blog-image">🏥</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Project</span>
+                            <span>📅 September 2026</span>
+                        </div>
+                        <h3>How I Built Nexus Healthcare</h3>
+                        <p>The complete story behind my first major project - from idea to deployment, and the lessons I learned.</p>
+                        <a href="#" class="blog-link">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog 3 -->
+                <div class="blog-card">
+                    <div class="blog-image">💻</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Tutorial</span>
+                            <span>📅 September 2026</span>
+                        </div>
+                        <h3>HTML & CSS for Absolute Beginners</h3>
+                        <p>A simple, no-nonsense guide to get started with web development. No prior experience needed.</p>
+                        <a href="#" class="blog-link">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog 4 -->
+                <div class="blog-card">
+                    <div class="blog-image">🚀</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Tips</span>
+                            <span>📅 September 2026</span>
+                        </div>
+                        <h3>5 Tips for Young Developers</h3>
+                        <p>Things I wish I knew when I started coding. Practical advice for beginners and young learners.</p>
+                        <a href="#" class="blog-link">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog 5 -->
+                <div class="blog-card">
+                    <div class="blog-image">🐙</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">GitHub</span>
+                            <span>📅 September 2026</span>
+                        </div>
+                        <h3>How to Deploy a Website on GitHub Pages</h3>
+                        <p>Step-by-step guide to host your website for free using GitHub Pages. No servers needed.</p>
+                        <a href="#" class="blog-link">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog 6 -->
+                <div class="blog-card">
+                    <div class="blog-image">🎨</div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-tag">Design</span>
+                            <span>📅 September 2026</span>
+                        </div>
+                        <h3>The Importance of Good UI/UX</h3>
+                        <p>Why design matters as much as code. How good design can make or break your website.</p>
+                        <a href="#" class="blog-link">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-wrapper">
+                <h2>Want to Stay Updated?</h2>
+                <p>Follow me on social media to get notified when I publish new posts.</p>
+                <a href="./contact.html" class="btn-primary">Connect With Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">TECH<span>NEXUS</span></span>
+                    </div>
+                    <p>A tech blog by Aayansh Vaibhav.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="GitHub">🐙</a>
+                        <a href="#" aria-label="Instagram">📸</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Pages</h4>
+                    <ul>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./projects.html">Projects</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Projects</h4>
+                    <ul>
+                        <li><a href="https://vaibhavvaayansh-alt.github.io/nexus-healthcare/" target="_blank">Nexus Healthcare</a></li>
+                        <li><a href="./index.html">TechNexus</a></li>
+                        <li><a href="#">Coming Soon</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TechNexus by Aayansh Vaibhav. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== BACK TO TOP ==================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
